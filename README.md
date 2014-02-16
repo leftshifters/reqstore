@@ -16,7 +16,6 @@ var reqstore = require('reqstore');
 app.use(reqstore());
 
 // later in a route middleware
-
 exports.dostuff = function(req, res, next) {
   req.store.item = { foo: 'bar' };
   next();
@@ -24,6 +23,8 @@ exports.dostuff = function(req, res, next) {
 
 exports.domore = function(req, res, next) {
   var item = req.store.item;
+  console.log(item);  // { foo: 'bar' }
+  next();
 };
 ````
 
