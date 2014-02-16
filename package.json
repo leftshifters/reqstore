@@ -1,0 +1,31 @@
+{
+  "name": "reqstore",
+  "version": "0.0.1",
+  "description": "request store middleware",
+  "main": "reqstore.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vxtindia/reqstore.git"
+  },
+  "keywords": [
+    "req",
+    "request",
+    "store",
+    "storage",
+    "middleware",
+    "connect",
+    "express"
+  ],
+  "author": "Debjeet Biswas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vxtindia/reqstore/issues"
+  },
+  "homepage": "https://github.com/vxtindia/reqstore",
+  "dependencies": {
+    "debug": "~0.7.4"
+  }
+}
