@@ -53,6 +53,13 @@ function domorestuff(req, res, next) {
 }
 ````
 
+Run Tests
+=========
+
+````
+$ make test
+````
+
 Bugs
 ====
 
