@@ -1,4 +1,4 @@
-reqstore [![Build Status](https://travis-ci.org/vxtindia/reqstore.png?branch=test)](https://travis-ci.org/vxtindia/reqstore)
+reqstore [![Build Status](https://travis-ci.org/leftshifters/reqstore.png?branch=master)](https://travis-ci.org/leftshifters/reqstore)
 ========
 
 Request storage middleware for connect or express
