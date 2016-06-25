@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/vxtindia/reqstore.git"
+    "url": "git://github.com/leftshifters/reqstore.git"
   },
   "bugs": {
-    "url": "https://github.com/vxtindia/reqstore/issues"
+    "url": "https://github.com/leftshifters/reqstore/issues"
   },
   "keywords": [
     "req",
@@ -24,7 +24,7 @@
   ],
   "author": "Debjeet Biswas",
   "license": "MIT",
-  "homepage": "https://github.com/vxtindia/reqstore",
+  "homepage": "https://github.com/leftshifters/reqstore",
   "dependencies": {
     "debug": "^0.7.4"
   },
