@@ -1,11 +1,13 @@
 var debug = require('debug')('reqstore');
 
+var blacklist = ['get', 'set', 'remove'];
+
 exports = module.exports = function addStore(options) {
   options = options || {};
 
-	return function store(req, res, next) {
-		// Attach request storage
-		req.store = req.store || {};
+  return function store(req, res, next) {
+    // Attach request storage
+    req.store = req.store || {};
 
     // Fetch saved key
     req.store.get = function(key) {
@@ -14,6 +16,9 @@ exports = module.exports = function addStore(options) {
 
     // Save a key. Same name key overwrites
     req.store.set = function(key, val) {
+
+      if (!!~blacklist.indexOf(key)) throw new Error('Can\'t set key named \'' + key + '\'');
+
       if ('object' === typeof key) {
         for (attr in key) {
           if (key.hasOwnProperty(attr)) {
@@ -28,11 +33,11 @@ exports = module.exports = function addStore(options) {
 
     // Removes value
     req.store.remove = function(key) {
-      if ('string' === typeof key) return;
+      if ('string' !== typeof key) return;
       delete this[key];
     };
 
-		debug("Attaching storage to request");
-		next();
-	};
+    debug("Attaching storage to request");
+    next();
+  };
 };

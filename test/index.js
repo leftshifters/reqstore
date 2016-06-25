@@ -21,7 +21,6 @@ app.get('/', function(req, res, next) {
   req.store.set(Infinity);
 
   next();
-
 }, function(req, res, next) {
 
   assert.strictEqual(req.store.get('foo'), 'bar', 'get should return saved value');
@@ -30,19 +29,25 @@ app.get('/', function(req, res, next) {
   assert.strictEqual(typeof req.store.get(0), 'undefined', '0 can\'t be a key');
   assert.strictEqual(typeof req.store.get(null), 'undefined', 'null can\'t be a key');
   assert.strictEqual(typeof req.store.get('stuff'), 'object', 'object values can be fetched');
-  next();
 
+  next();
 }, function(req, res, next) {
   req.store.remove('foo');
-  next();
+  req.store.remove('beep');
 
+  assert.strictEqual(typeof req.store.get('foo'), 'undefined', 'should return undefined for deleted key');
+  assert.strictEqual(typeof req.store.get('beep'), 'undefined', 'should return undefined for deleted key');
+
+  next();
 }, function(req, res) {
   res.send(200);
 });
 
 var server = app.listen(3000, function() {
     http.get('http://localhost:3000', function(res) {
-      server.close();
-      process.exit();
+      setTimeout(function() {
+        server.close();
+        process.exit();
+      }, 1000);
     });
 });
