@@ -10,16 +10,17 @@ Attaches an empty object named `store` to every `req`. Provides a way to store i
 
 Exposes a localStorage like API.
 
-````
+```js
 req.store.get('key');
 req.store.set('key', 'value');
 req.store.set({ key: 'value' });
 req.store.remove('key');
-````
+```
 
 Usage
 =====
-````
+
+```js
 var reqstore = require('reqstore');
 //...
 app.use(reqstore());
@@ -51,14 +52,14 @@ function domorestuff(req, res, next) {
   console.log(item);  // { foo: 'bar' }
   next();
 }
-````
+```
 
 Run Tests
 =========
 
-````
+```bash
 $ make test
-````
+```
 
 Bugs
 ====
